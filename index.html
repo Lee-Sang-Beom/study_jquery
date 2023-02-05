@@ -13,24 +13,82 @@
             line-height: 40px;
             text-align: center;
             cursor: pointer;
+            z-index: 2;
+        }
+        .popup_bg{
+            display: none;
+            position: absolute;
+            top:0;
+            left:0;
+            width: 100%;
+            height:100%;
+            background:rgba(0,0,0,0.7);
+        }
+        .popup{
+            width: 300px;
+            height: 500px;
+            background-color: #ffffff;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translateX(-50%) translateY(-50%);
         }
     </style>
 
 </head>
 
 <body>
-    <button class="btn">hello</button>
+    <!-- <div class="popup_bg">
+        <div class="popup"></div>
+    </div> -->
+    
+    <div class="img_folder"><img src="./img/img1.jpg"/></div>
+    <button class="btn">클릭</button>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $(".btn").click(function () {
-                console.log("click");
-            });
-        });
+        /*
 
         // $(document): document(html 문서)가
         // ready : 준비되면
         // function()... : function 내 함수를 실행해라
+
+        $(document).ready(function () {
+            // 버튼 누르면, 팝업 배경이 뜨게
+            $(".btn").click(function () {
+                $(".popup_bg").css({"display": "block"});
+            });
+
+            // 팝업 배경 누르면, 다시 버튼 누를 수 있게
+
+            $(".popup_bg").click(function(){
+                // $(".popup_bg").css({"display":"none"});
+
+                // 자기 자신을 가리키는 this 사용
+                $(this).css({"display":"none"});
+
+            })
+        });
+        */
+
+        /*
+        $(document).ready(function(){
+            // 첫번째 콜백함수 : hover될때
+            // 두번째 콜백함수 : unhover될때
+            $(".btn").hover (function(){
+                $(this).css({"background":"pink","transition":"0.7s"});
+            }, function(){
+                $(this).css({"background":"black","transition":"0.7s"});
+            })
+        });
+        */
+
+        $(document).ready(function(){
+            $(".img_folder > img").click(function(){
+                $(this).attr("src", "./img/img2.jpg");
+            })
+        })
     </script>
 </body>
 
